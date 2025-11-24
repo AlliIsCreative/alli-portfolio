@@ -14,7 +14,7 @@
 
 </div>
 
-# Awesome Jekyll Theme 🎉
+ilhefilhefopjoeap
 
 A clean, versatile Jekyll theme with minimalist design and robust features.
 Ideal for portfolios, blogs, and project showcases with responsive layouts and easy customization.
