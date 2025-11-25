@@ -8,8 +8,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Raleway'],
-      'mulish': ["Mulish"]
+      sans: ['Raleway'],
+      mulish: ['Mulish'],
     },
     container: {
       padding: {
@@ -20,11 +20,13 @@ module.exports = {
         '2xl': '6rem',
       },
     },
-    extend: {},
+    extend: {
+      colors: {
+        brand: '#277fa2', // your accessible blue
+      },
+    },
   },
   plugins: [
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
   ],
 }
-
-
