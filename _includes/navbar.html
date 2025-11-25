@@ -1,24 +1,39 @@
 {%- assign current_page_url = page.url | relative_url -%}
 <nav class="absolute top-0 left-0 right-0 flex w-full flex-wrap items-center justify-between py-4">
   <div class="flex w-full flex-wrap items-center justify-between px-5">
-    <a class="flex items-center" href="{{site.baseurl}}/" aria-label="Alli – Developer">
-      <!-- Icon logo (all screen sizes) -->
-      <div class="md:hidden flex items-center justify-center w-8 h-8 text-brand">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-6 h-6">
-    <path fill="currentColor" d="M66.1 441.4L109.1 515.7C113.4 524.2 119.9 531.4 128 536.4C136.1 541.4 145.4 544 155 544L440.4 544L381.2 441.4L66.1 441.4zM565.9 414L399.7 123.3C395.3 115.1 388.8 108.2 380.8 103.3C372.8 98.4 363.7 96 354.4 96L266 96L523.3 543.6L564 473.1C565.9 469.9 585 443.4 566 414zM339.2 368.5L223.7 168.5L108.2 368.5L339.2 368.5z"/>
-  </svg>
-</div>
-      <!-- Desktop/tablet/mobile: text logo -->
-      <p class="text-lg font-bold" style="padding-left: 24px;">{{ site.nav_title | default: site.title }}</p>
+    
+    <!-- Logo block -->
+    <a class="flex items-center" href="{{site.baseurl}}/" aria-label="Alli. Designer Portfolio">
+      
+      <!-- Icon: visible on ALL screen sizes -->
+      <div class="flex items-center justify-center w-8 h-8 text-brand hover:text-brand-light transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-6 h-6">
+          <path fill="currentColor" d="M66.1 441.4L109.1 515.7C113.4 524.2 119.9 531.4 128 536.4C136.1 541.4 145.4 544 155 544L440.4 544L381.2 441.4L66.1 441.4zM565.9 414L399.7 123.3C395.3 115.1 388.8 108.2 380.8 103.3C372.8 98.4 363.7 96 354.4 96L266 96L523.3 543.6L564 473.1C565.9 469.9 585 443.4 566 414zM339.2 368.5L223.7 168.5L108.2 368.5L339.2 368.5z"/>
+        </svg>
+      </div>
+
+      <!-- Text: hidden on mobile, visible on md+ -->
+      <p class="hidden md:block text-lg font-bold pl-6">
+        {{ site.nav_title | default: site.title }}
+      </p>
+
     </a>
+
+    <!-- Navigation links + theme + language -->
     <div class="flex divide-x">
+
       {% for page in site.pages %}
       {% if page.nav %}
-      <div><a class="px-4 hover:underline {% if page.url == current_page_url %}font-bold{% endif %}"
-          href="{{ page.url | relative_url }}">{{ page.title | default: page.name }}</a></div>
-      {% endif%}
+      <div>
+        <a class="px-4 hover:underline {% if page.url == current_page_url %}font-bold{% endif %}"
+           href="{{ page.url | relative_url }}">
+          {{ page.title | default: page.name }}
+        </a>
+      </div>
+      {% endif %}
       {% endfor %}
 
+      <!-- Theme Switcher -->
       <div class="theme-switcher">
         <button id="theme-toggle" class="px-4" aria-label="Toggle theme">
           <span class="dark:hidden">
@@ -34,6 +49,7 @@
         </button>
       </div>
 
+      <!-- Language Switcher -->
       {% if site.languages.size > 1 %}
       <div class="language-switcher relative">
         <button class="current-language px-4 hover:underline">
@@ -43,18 +59,23 @@
         <div class="dropdown-content absolute hidden mt-2 py-2 bg-white dark:bg-neutral-700 rounded-sm shadow-lg z-20">
           {% for tongue in site.languages %}
             {% if tongue != site.active_lang %}
-            <a class="p-4 hover:underline" {% static_href
-              %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"
-              {% endstatic_href %}>{{ tongue | upcase }}</a>{%- if forloop.last == false -%}{{" "}}{{ site.langsep }}{%-
-            endif -%}
+            <a class="p-4 hover:underline"
+               {% static_href %}
+               href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"
+               {% endstatic_href %}>
+              {{ tongue | upcase }}
+            </a>
+            {%- if forloop.last == false -%} {{" "}} {{ site.langsep }} {%- endif -%}
             {% endif %}
           {% endfor %}
         </div>
       </div>
       {% endif %}
+
     </div>
   </div>
 
+  <!-- Dropdown script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const currentLangButton = document.querySelector('.current-language');
