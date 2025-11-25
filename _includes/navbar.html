@@ -2,7 +2,15 @@
 <nav class="absolute top-0 left-0 right-0 flex w-full flex-wrap items-center justify-between py-4">
   <div class="flex w-full flex-wrap items-center justify-between px-5">
     <a class="flex" href="{{site.baseurl}}/" aria-label="Alli – Developer">
+      <!-- Desktop/tablet: text logo -->
       <p class="pl-4 hidden md:block text-lg font-bold">{{ site.title }}</p>
+      <!-- Mobile: icon logo -->
+      <div class="md:hidden flex items-center justify-center w-8 h-8">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+          <path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
     </a>
     <div class="flex divide-x">
       {% for page in site.pages %}
