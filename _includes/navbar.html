@@ -9,7 +9,7 @@
         </svg>
       </div>
       <!-- Desktop/tablet/mobile: text logo -->
-      <p class="text-lg font-bold" style="padding-left: 24px;">{{ site.title }}</p>
+      <p class="text-lg font-bold" style="padding-left: 24px;">{{ site.nav_title | default: site.title }}</p>
     </a>
     <div class="flex divide-x">
       {% for page in site.pages %}
