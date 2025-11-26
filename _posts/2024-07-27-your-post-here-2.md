@@ -2,7 +2,7 @@
 layout: post
 title: Hey what's up! It's Alli and here is a post
 image: "https://picsum.photos/500/300"
-category: Lorem Ipsum
+category: My New Category
 author: Me
 ---
 
@@ -27,8 +27,7 @@ _sacravere_. Numina medium at suo viroque aeque miserabile fugio, bene?
 
 ## Epops haec
 
-Spatium popularis communis modo ignavis, cetera sceptrum formae erat, looks like a link? [tibi
-hos](http://cum.net/habemus.html), maiora decor. Ducunt amor quid in arbore quis
+Spatium popularis communis modo ignavis, cetera sceptrum formae erat, looks like a link? [Name of Link](http://cum.net/habemus.html), maiora decor. Ducunt amor quid in arbore quis
 ardere qui rupe dominum te a!
 
 ## Corporeasque sunt
@@ -44,13 +43,12 @@ saxa sibi has invictumque gregibus in enim, subiecit.
 ## Inquit occupat coercet negant circumdata ecce Aeaciden
 
 Dente carpit pudici nescio inde quae, orbe vidit tellure caelo, dabat acer,
-haec. Quid frustraque what is happening here?: [aspexisse](http://cereris-et.io/defluit) virgo
+haec. Quid frustraque what is happening here?: [A LINK!](http://cereris-et.io/defluit) virgo
 exstinctum Lotis et causa crimine redeunt se aethera color nisi nec repurgat
 Ixionis discordia morsus.
 
 An oravit rogis amor, madescit [tacitorum tu](http://rigidis.io/que.html)
 turpius paludes. Haut superare _propior satelles harundine_ nostrum
-**Is this bold?** parat rabieque, numeroque Troiae, non, ore mihi, Oechalidum.
-_Essem quem nunc_ omnia limite, tu narrat pennae et senes neque, in diebus
-pugnat. Aurae enim lenta agresti velut relictis, hos luctus Sminthea _cadunt
-intonsum_ volenti spatio, speciosam secuta si. Ingenii nullo orientis, secuta!
+**to bold, do this** parat rabieque, numeroque Troiae, non, ore mihi, Oechalidum.
+_To make text italic do this_ omnia limite, tu narrat pennae et senes neque, in diebus
+pugnat. Aurae enim lenta agresti velut relictis, hos luctus Sminthea _more italics_ volenti spatio, speciosam secuta si. Ingenii nullo orientis, secuta!
