@@ -4,15 +4,26 @@ layout: default
 nav: true
 permalink: /projects/
 ---
-
 <section id="projects" class="container mx-auto pt-20 pb-10 lg:pt-[120px] lg:pb-20 min-h-screen">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16" data-motion="stagger-cards" data-motion-onscroll="false">
+    <!-- Title placed as a full-width grid item so it lines up with the project columns -->
+    <h1 class="col-span-full text-left text-2xl font-bold md:text-5xl">
+      {{ page.title }}
+    </h1>
+
+    {% for project in site.projects %}
+      {% include project_card.html project=project %}
+    {% endfor %}
+  </div>
+</section>
+<!-- <section id="projects" class="container mx-auto pt-20 pb-10 lg:pt-[120px] lg:pb-20 min-h-screen">
   <h1 class="text-left text-2xl font-bold md:text-5xl">{{page.title}}</h1>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16" data-motion="stagger-cards" data-motion-onscroll="false">
     {% for project in site.projects %}
     {% include project_card.html project=project%}
     {% endfor %}
   </div>
-</section>
+</section> -->
 
 
 <!-- <section id="projects" class="container mx-auto pt-20 pb-10 lg:pt-[120px] lg:pb-20 min-h-screen">
