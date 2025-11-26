@@ -1687,11 +1687,6 @@
       margin-bottom: calc(var(--spacing) * 12);
     }
   }
-  .md\:block {
-    @media (width >= 48rem) {
-      display: block;
-    }
-  }
   .md\:h-96 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 96);
@@ -1961,6 +1956,16 @@
 }
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
+}
+@layer utilities {
+  .nav-title {
+    display: none;
+  }
+  @media (width >= 48rem) {
+    .nav-title {
+      display: block;
+    }
+  }
 }
 @property --tw-translate-x {
   syntax: "*";

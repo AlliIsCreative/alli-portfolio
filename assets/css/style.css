@@ -87,4 +87,19 @@
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
 }
+/* -------------------------------------------------- */
+/*  Desktop-only navbar title                         */
+/* -------------------------------------------------- */
+@layer utilities {
+  .nav-title {
+    display: none;
+  }
+
+  /* Tailwind's md breakpoint is 48rem */
+  @media (width >= 48rem) {
+    .nav-title {
+      display: block;
+    }
+  }
+}
 
