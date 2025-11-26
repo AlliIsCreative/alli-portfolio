@@ -13,6 +13,18 @@
 
     {% seo %}
     {% include custom_head.html %}
+    <style>
+          #site-title {
+        display: none !important;
+      }
+
+      @media (min-width: 768px) {
+        #site-title {
+          display: block !important;
+        }
+      }
+    </style>
+    
   </head>
 
   <body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-200">
