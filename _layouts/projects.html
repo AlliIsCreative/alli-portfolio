@@ -4,11 +4,11 @@ layout: default
 nav: true
 permalink: /projects/
 ---
+
 <section id="projects" class="container mx-auto pt-20 pb-10 lg:pt-[120px] lg:pb-20 min-h-screen">
-  <div class="container mx-auto">
-    <!-- Page title -->
+
     <h1 class="text-3xl font-bold mb-6">{{ page.title }}</h1>
-  </div>
+  
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16" data-motion="stagger-cards" data-motion-onscroll="false">
     {% for project in site.projects %}
     {% include project_card.html project=project%}
@@ -16,6 +16,17 @@ permalink: /projects/
   </div>
 </section>
 
+
+<!-- <section id="projects" class="container mx-auto pt-20 pb-10 lg:pt-[120px] lg:pb-20 min-h-screen">
+  <div class="container mx-auto">
+    <h1 class="text-3xl font-bold mb-6">{{ page.title }}</h1>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16" data-motion="stagger-cards" data-motion-onscroll="false">
+    {% for project in site.projects %}
+    {% include project_card.html project=project%}
+    {% endfor %}
+  </div>
+</section> -->
 
 
 
