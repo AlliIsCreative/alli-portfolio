@@ -8,10 +8,10 @@ permalink: /projects/
   <div class="container mx-auto">
     <!-- Page title -->
     <h1 class="text-3xl font-bold mb-6">{{ page.title }}</h1>
-
-    <!-- Existing project listing -->
+  </div>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16" data-motion="stagger-cards" data-motion-onscroll="false">
     {% for project in site.projects %}
-      <!-- ...project markup... -->
+    {% include project_card.html project=project%}
     {% endfor %}
   </div>
 </section>
