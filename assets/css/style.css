@@ -87,15 +87,4 @@
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
 }
-/* -------------------------------------------------- */
-/*  site title edit for screens                            */
-/* -------------------------------------------------- */
-.nav-title {
-  display: none;
-}
 
-@media (min-width: 768px) {
-  .nav-title {
-    display: block;
-  }
-}
