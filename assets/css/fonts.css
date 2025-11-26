@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Mulish";
-  src: url("/assets/fonts/Mulish-Regular.ttf") format("truetype");
+  src: url("../fonts/Mulish-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
   font-family: "Raleway";
-  src: url("/assets/fonts/Raleway-Regular.ttf") format("truetype");
+  src: url("../fonts/Raleway-Regular.ttf") format("truetype");
   font-display: swap;
 }
 
