@@ -9,14 +9,24 @@
 /* -------------------------------------------------- */
 
 @theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Spectral", Georgia, serif;
+
+  --color-brand: #277fa2;
+  --color-brand-hover: #1b5e78;
+}
+
+
+
+/* @theme {
   --font-*: initial;
   --font-sans: Raleway;
   --font-mulish: Mulish;
 
-  /* Brand color system */
-  --color-brand: #277fa2;          /* Accessible blue */
-  --color-brand-hover: #1b5e78;    /* Darker hover variant */
-}
+  
+  --color-brand: #277fa2;         
+  --color-brand-hover: #1b5e78;    
+} */
 
 /* -------------------------------------------------- */
 /*  CONTAINER OVERRIDES (unchanged)                   */
@@ -47,6 +57,14 @@
 /* -------------------------------------------------- */
 
 @layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 700; /* ensure bold Spectral */
+  }
 
   /* Tailwind v4 border compatibility */
   *,
@@ -86,20 +104,5 @@
 
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
-}
-/* -------------------------------------------------- */
-/*  Desktop-only navbar title                         */
-/* -------------------------------------------------- */
-@layer utilities {
-  .nav-title {
-    display: none;
-  }
-
-  /* Tailwind's md breakpoint is 48rem */
-  @media (width >= 48rem) {
-    .nav-title {
-      display: block;
-    }
-  }
 }
 
