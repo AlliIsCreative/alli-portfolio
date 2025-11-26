@@ -3,6 +3,10 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-serif: "Source Serif 4", Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
     --color-sky-400: oklch(74.6% 0.16 232.661);
     --color-slate-200: oklch(92.9% 0.013 255.508);
     --color-slate-600: oklch(44.6% 0.043 257.281);
@@ -25,7 +29,6 @@
     --color-neutral-900: oklch(20.5% 0 0);
     --color-neutral-950: oklch(14.5% 0 0);
     --color-stone-900: oklch(21.6% 0.006 56.043);
-    --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-lg: 32rem;
@@ -44,7 +47,6 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
-    --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
@@ -55,8 +57,7 @@
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
-    --font-sans: Raleway;
-    --font-mulish: Mulish;
+    --default-mono-font-family: var(--font-mono);
     --color-brand: #277fa2;
     --color-brand-hover: #1b5e78;
   }
@@ -210,6 +211,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .absolute {
     position: absolute;
   }
@@ -239,6 +243,9 @@
   }
   .z-20 {
     z-index: 20;
+  }
+  .col-span-full {
+    grid-column: 1 / -1;
   }
   .container {
     width: 100%;
@@ -1209,6 +1216,9 @@
   .pl-2 {
     padding-left: calc(var(--spacing) * 2);
   }
+  .pl-6 {
+    padding-left: calc(var(--spacing) * 6);
+  }
   .text-center {
     text-align: center;
   }
@@ -1217,9 +1227,6 @@
   }
   .text-left {
     text-align: left;
-  }
-  .font-mulish {
-    font-family: var(--font-mulish);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -1312,6 +1319,11 @@
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
@@ -1675,11 +1687,6 @@
       margin-bottom: calc(var(--spacing) * 12);
     }
   }
-  .md\:hidden {
-    @media (width >= 48rem) {
-      display: none;
-    }
-  }
   .md\:h-96 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 96);
@@ -1926,6 +1933,14 @@
   }
 }
 @layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-optical-sizing: auto;
+  }
   *, ::after, ::before, ::backdrop, ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }

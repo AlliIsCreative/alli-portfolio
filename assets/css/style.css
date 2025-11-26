@@ -1,7 +1,5 @@
 @import 'tailwindcss';
-
 @plugin '@tailwindcss/typography';
-
 @custom-variant dark (&:is(.dark *));
 
 /* -------------------------------------------------- */
@@ -10,23 +8,11 @@
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Spectral", Georgia, serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
 
   --color-brand: #277fa2;
   --color-brand-hover: #1b5e78;
 }
-
-
-
-/* @theme {
-  --font-*: initial;
-  --font-sans: Raleway;
-  --font-mulish: Mulish;
-
-  
-  --color-brand: #277fa2;         
-  --color-brand-hover: #1b5e78;    
-} */
 
 /* -------------------------------------------------- */
 /*  CONTAINER OVERRIDES (unchanged)                   */
@@ -57,13 +43,16 @@
 /* -------------------------------------------------- */
 
 @layer base {
-  body {
+  /* Default body font: Inter */
+  html {
     font-family: var(--font-sans);
   }
 
-  h1, h2, h3, h4 {
+  /* Headings: Source Serif 4 */
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    font-weight: 700; /* ensure bold Spectral */
+    font-weight: 700;
+    font-optical-sizing: auto;
   }
 
   /* Tailwind v4 border compatibility */
@@ -87,7 +76,7 @@
 }
 
 /* -------------------------------------------------- */
-/*  ANIMATION (unchanged)                             */
+/*  ANIMATION                                         */
 /* -------------------------------------------------- */
 
 @keyframes gentle-bounce {
@@ -95,14 +84,13 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-3px); /* Slight upward movement */
+    transform: translateY(-3px);
   }
   100% {
-    transform: translateY(0); /* Return to original position */
+    transform: translateY(0);
   }
 }
 
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
 }
-
