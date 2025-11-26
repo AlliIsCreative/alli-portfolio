@@ -22,7 +22,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        brand: '#277fa2', // your accessible blue
+        brand: '/* YOUR_NEW_COLOR */',
       },
     },
   },

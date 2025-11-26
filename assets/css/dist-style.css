@@ -58,8 +58,8 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-brand: #277fa2;
-    --color-brand-hover: #1b5e78;
+    --color-brand: #C09556;
+    --color-brand-hover: #9E7A41;
   }
 }
 @layer base {
