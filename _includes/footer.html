@@ -9,7 +9,7 @@
           {{ site.data[site.active_lang].strings.footer.title | default:
           site.data['en'].strings.footer.title}}
         </p>
-        <p class="font-mulish text-lg dark:text-zinc-300 mt-2 mb-2">
+        <p class="font-sans text-lg dark:text-zinc-300 mt-2 mb-2">
           {{ site.data[site.active_lang].strings.footer.description | default:
           site.data['en'].strings.footer.description}}
         </p>
@@ -26,7 +26,7 @@
             <ul>
               {% for page in site.pages %} {% if page.footer %}
               <li>
-                <a class="font-mulish text-slate-600 hover:text-sky-400 dark:text-neutral-300 dark:hover:text-slate-200"
+                <a class="font-sans text-slate-600 hover:text-sky-400 dark:text-neutral-300 dark:hover:text-slate-200"
                   href="{{ page.url | relative_url }}">{{ page.title | default: page.name }}</a>
               </li>
               {% endif%} {% endfor %}
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="font-mulish flex flex-wrap items-center md:justify-between justify-center my-8">
+    <div class="font-sans flex flex-wrap items-center md:justify-between justify-center my-8">
       <div class="w-full md:w-4/12 px-4 mx-auto text-center">
         {% if site.plugins contains 'jekyll-feed' %}
         <a href="{{ '/feed.xml' | relative_url }}" class="p-2">

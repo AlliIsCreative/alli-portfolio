@@ -7,14 +7,14 @@ layout: default
   <div id="post" class="prose md:prose-lg dark:prose-invert prose-img:rounded-lg max-w-[75ch] mx-auto pb-10 pt-20 lg:pt-[90px] lg:pb-20">
     <div class="pb-4" data-motion="fadeInRight">
       <a href="{{site.url}}/category/{{page.categories[0] | replace: ' ', '-' | downcase}}"
-        class="no-underline font-mulish text-sm hover:underline text-neutral-700 dark:text-neutral-300">
+        class="no-underline font-sans text-sm hover:underline text-neutral-700 dark:text-neutral-300">
         {{ page.categories[0] | upcase }}
       </a>
     </div>
 
     <h1 class="text-left text-2xl font-bold md:text-5xl text-neutral-900 dark:text-neutral-100" data-motion="fadeInRight">{{page.title}}</h1>
 
-    <div data-motion="fadeInLeft" data-motion-delay="0.4" data-motion-duration="0.4" class="flex flex-col md:flex-row text-sm font-mulish justify-between items-center">
+    <div data-motion="fadeInLeft" data-motion-delay="0.4" data-motion-duration="0.4" class="flex flex-col md:flex-row text-sm font-sans justify-between items-center">
       <div class="flex">
         <p>{{ page.author }}</p>
         <p class="px-2">•</p>
@@ -45,7 +45,7 @@ layout: default
       {% include sharing.html %}
     </div>
 
-    <div class="font-mulish flex justify-center mb-10">
+    <div class="font-sans flex justify-center mb-10">
       {% if page.previous.url %}
       <a class="pr-2" href="{{page.previous.url | relative_url}}">&laquo; {{ page.previous.title }}</a>
       {% endif %}

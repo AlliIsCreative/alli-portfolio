@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Raleway'],
-      mulish: ['Mulish'],
+      sans: ['sans'],
     },
     container: {
       padding: {

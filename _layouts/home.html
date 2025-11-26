@@ -49,7 +49,7 @@ layout: default
     {% if blog_page %}
     <div class="pt-4 text-end" data-motion="fadeInUp">
       <a
-        class="font-mulish text-lg hover:text-sky-400 hover:underline font-bold"
+        class="font-sans text-lg hover:text-sky-400 hover:underline font-bold"
         href="{{ blog_page.url | relative_url }}"
       >
         {{ site.data[site.active_lang].strings.home.see_more_posts | default:
@@ -78,7 +78,7 @@ layout: default
     </div>
     <div class="pt-4 text-end" data-motion="fadeInUp">
       <a
-        class="font-mulish text-lg hover:text-sky-400 hover:underline font-bold"
+        class="font-sans text-lg hover:text-sky-400 hover:underline font-bold"
         href="{{'/projects' | relative_url }}"
       >
         {{ site.data[site.active_lang].strings.home.see_more_projects | default:
