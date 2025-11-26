@@ -87,3 +87,49 @@
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
 }
+
+/* === Section layout consistency overrides ===
+   - Ensure sections don't have forced/fixed heights
+   - Prefer flex-start for aligned flex sections to avoid vertical centering
+   - Remove top padding on the projects section inner wrapper that creates unwanted whitespace
+   Notes: these are intentionally specific and include !important where necessary to override utility classes.
+*/
+section {
+  height: auto !important;
+  min-height: auto !important;
+  /* align-items only applies if section is a flex container; harmless otherwise */
+  align-items: flex-start !important;
+}
+
+/* Target projects section explicitly */
+section#projects {
+  height: auto !important;
+  min-height: auto !important;
+  align-items: flex-start !important;
+}
+
+/* Remove top padding from the common inner wrapper used by sections.
+   This targets the common utility combination seen in templates: .py-16.w-full
+*/
+section#projects > .py-16.w-full {
+  padding-top: 0 !important;
+}
+
+/* Additional common wrapper padding resets to catch variants that cause top whitespace.
+   Be conservative and only target typical utility combos used in templates.
+*/
+section > .py-16.w-full,
+section > .py-12.w-full,
+section > .py-8.w-full {
+  padding-top: 0 !important;
+}
+
+/* If a section was forced to vertically center its children, prefer top alignment for layout consistency.
+   This is scoped to flex containers; no visual change for non-flex sections.
+*/
+section[class*="flex"],
+section[style*="display:flex"] {
+  align-items: flex-start !important;
+}
+
+/* End section overrides */
