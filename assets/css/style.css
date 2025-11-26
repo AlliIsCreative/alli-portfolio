@@ -94,3 +94,17 @@
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
 }
+
+/* Site background variables (light / dark) */
+:root {
+  --site-bg: #F7F4EF; /* light background — change this to your preferred hex */
+}
+
+.dark {
+  --site-bg: #1A1816; /* dark background — change if desired */
+}
+
+/* Force the page background to use the variable (override Tailwind utilities if necessary) */
+body {
+  background-color: var(--site-bg) !important;
+}

@@ -1968,6 +1968,15 @@
 a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
 }
+:root {
+  --site-bg: #F7F4EF;
+}
+.dark {
+  --site-bg: #1A1816;
+}
+body {
+  background-color: var(--site-bg) !important;
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;

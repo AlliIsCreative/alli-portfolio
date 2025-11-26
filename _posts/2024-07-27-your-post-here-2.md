@@ -2,8 +2,8 @@
 layout: post
 title: Hey what's up! It's Alli and here is a post
 image: "https://picsum.photos/500/300"
-category: My New Category
-author: Me
+category: Publications
+author: Allison
 ---
 
 Since this is like a blog, I'm stoked to show you this. 
