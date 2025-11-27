@@ -131,6 +131,15 @@ button,
   padding-block: 0.5rem;
 }
 
+/* Specific navbar link patterns */
+a.px-4,
+a.flex.items-center {
+  min-height: 44px;
+  min-width: 44px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 /* Ensure spacing between adjacent touch targets */
 nav a + a,
 nav button + button,
@@ -138,37 +147,6 @@ nav button + button,
 .nav-link + .nav-link {
   margin-left: 0.5rem;
 }
-
-/* Social links and icon buttons */
-.social-links a,
-.share-buttons a,
-[aria-label*="share"] {
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0.5rem;
-}
-
-/* Mobile: increase to 48px for better tap experience */
-@media (width < theme(--breakpoint-md)) {
-  nav a,
-  nav button,
-  .navbar a,
-  .navbar button,
-  .nav-link,
-  button,
-  [role="button"],
-  .btn {
-    min-height: 48px;
-    padding-block: 0.75rem;
-  }
-
-  nav a + a,
-  nav button + button,
-  .navbar a + a {
-    margin-left: 0.75rem;
-  }
-}
-
 /* -------------------------------------------------- */
 /*  ANIMATION                                         */
 /* -------------------------------------------------- */
