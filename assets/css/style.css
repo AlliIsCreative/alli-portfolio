@@ -23,7 +23,7 @@
   --color-text-dark:  #F7F4EF;  /* warm off-white */
 
   /* Links – LIGHT MODE */
-  --color-link-light:       #A36B3C;
+  --color-link-light:       #9E5F2C;
   --color-link-hover-light: #B37742;
 
   /* Links – DARK MODE */
@@ -88,7 +88,7 @@
   /* Global link colors using our new tokens */
   a {
     color: var(--color-link-light);
-    text-decoration: underline;
+    text-decoration: none;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.18em;
   }
