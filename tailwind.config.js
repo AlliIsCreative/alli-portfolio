@@ -22,7 +22,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        brand: '/* YOUR_NEW_COLOR */',
+        brand: 'B87F2A', 
+        brand-hover: #E0A955; // your accessible LIght gold
       },
     },
   },

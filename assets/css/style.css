@@ -10,8 +10,29 @@
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Source Serif 4", Georgia, serif;
 
-  --color-brand: #C09556;
-  --color-brand-hover: #9E7A41;
+  /* Brand colours (you can still use these for buttons etc.) */
+  --color-brand: #B87F2A;
+  --color-brand-hover: #E0A955;
+
+  /* Site backgrounds */
+  --color-bg-light: #F4F1EB;
+  --color-bg-dark:  #1A1816;
+
+  /* Text */
+  --color-text-light: #1A1816;  /* warm charcoal */
+  --color-text-dark:  #F7F4EF;  /* warm off-white */
+
+  /* Links – LIGHT MODE */
+  --color-link-light:       #A36B3C;
+  --color-link-hover-light: #B37742;
+
+  /* Links – DARK MODE */
+  --color-link-dark:        #E0A955;
+  --color-link-hover-dark:  #B87F2A;
+
+  /* Supporting neutrals */
+  --color-soft-warm-gray: #E8E3DC;
+  --color-deep-warm-gray: #2A2724;
 }
 
 /* -------------------------------------------------- */
@@ -51,7 +72,7 @@
   /* Headings: Source Serif 4 */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    font-weight: 700;
+    font-weight: 600;
     font-optical-sizing: auto;
   }
 
@@ -64,14 +85,27 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 
-  /* Global link colors using brand tokens */
+  /* Global link colors using our new tokens */
   a {
-    color: var(--color-brand);
+    color: var(--color-link-light);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
   }
 
   a:hover,
   a:focus {
-    color: var(--color-brand-hover);
+    color: var(--color-link-hover-light);
+  }
+
+  /* Dark mode link overrides */
+  .dark a {
+    color: var(--color-link-dark);
+  }
+
+  .dark a:hover,
+  .dark a:focus {
+    color: var(--color-link-hover-dark);
   }
 }
 
@@ -96,12 +130,14 @@ a.gentle-clicked {
 }
 
 /* Site background variables (light / dark) */
+/* You *could* swap these to use theme vars later if you want */
+
 :root {
-  --site-bg: #F7F4EF; /* light background — change this to your preferred hex */
+  --site-bg: #F7F4EF; /* light background */
 }
 
 .dark {
-  --site-bg: #1A1816; /* dark background — change if desired */
+  --site-bg: #2A2724; /* dark background */
 }
 
 /* Force the page background to use the variable (override Tailwind utilities if necessary) */
