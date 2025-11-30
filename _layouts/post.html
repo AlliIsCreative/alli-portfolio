@@ -5,33 +5,39 @@ layout: default
 <link rel="stylesheet" href="{{ '/assets/css/monokai.css' | relative_url }}">
 <div class="container mx-auto">
   <div id="post" class="prose md:prose-lg dark:prose-invert prose-img:rounded-lg max-w-[75ch] mx-auto pb-10 pt-20 lg:pt-[90px] lg:pb-20">
-    <div class="pb-4" data-motion="fadeInRight">
-      <a href="{{site.url}}/category/{{page.categories[0] | replace: ' ', '-' | downcase}}"
-        class="no-underline font-sans text-sm hover:underline text-neutral-700 dark:text-neutral-300">
-        {{ page.categories[0] | upcase }}
-      </a>
-    </div>
-
-    <h1 class="text-left text-2xl font-bold md:text-5xl text-neutral-900 dark:text-neutral-100" data-motion="fadeInRight">{{page.title}}</h1>
-
-    <div data-motion="fadeInLeft" data-motion-delay="0.4" data-motion-duration="0.4" class="flex flex-col md:flex-row text-sm font-sans justify-between items-center">
+    <h1 
+      class="font-serif font-thin text-left text-2xl md:text-5xl text-neutral-900 dark:text-neutral-100"
+      data-motion="fadeInRight"
+    >
+      {{ page.title }}
+    </h1>
+     <!-- <div data-motion="fadeInLeft" data-motion-delay="0.4" data-motion-duration="0.4" class="flex flex-col md:flex-row text-sm font-sans justify-between items-center">
       <div class="flex">
-        <p>{{ page.author }}</p>
+       <p>{{ page.author }}</p>
         <p class="px-2">•</p>
         <p>{{ page.date | date: "%-d %B %Y" }}</p>
         <p class="px-2">•</p>
-        <p>
+        <p> 
           {% assign words = content | number_of_words %}
           {% if words < 360 %} 1 min {% else %} {{ words | divided_by: 180 }} mins {% endif %} </p>
-      </div>
-      <div>
+      </div>-->
+     <!--  <div>
         {% include sharing.html %}
-      </div>
-    </div>
+      </div> 
+    </div>-->
 
     {% if page.image %}
       <img data-motion="fadeInUp" data-motion-onscroll="false" data-motion-delay="0.8" data-motion-duration="0.2" class="w-full" src="{{page.image | relative_url}}" alt="{{page.title}}">
     {% endif %}
+
+<div class="pb-4" data-motion="fadeInRight">
+  {% for category in page.categories %}
+    <a href="{{site.url}}/category/{{category | replace: ' ', '-' | downcase}}"
+      class="no-underline font-sans text-sm hover:underline text-neutral-700 dark:text-neutral-300">
+      {{ category | upcase }}
+    </a>{% unless forloop.last %}<span class="px-2">•</span>{% endunless %}
+  {% endfor %}
+</div>
 
     <div data-motion="fadeInUp" data-motion-onscroll="false" data-motion-delay="1" data-motion-duration="0.2" class="my-6">
       {{content}}
@@ -54,6 +60,6 @@ layout: default
       {% endif %}
     </div>
 
-    {% include comment_system.html %}
+   <!--  {% include comment_system.html %} -->
   </div>
 </div>

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: How to create an effective landing page for your campaign
-image: "https://picsum.photos/500/300"
-category: Ruby On Rails
+image: "/assets/images/Projects/1-ExReg/hero.png"
+category: Design
 author: Me
 ---
 
@@ -16,6 +16,7 @@ poma ingentia vacet credentes. Namque avertere notatum placandam atque,
 _miserrima Astyanax_ dieque ut sinat Cereris: nec.
 
 ## Nec non stirpe cratera tibi non totidemque
+![Test Image](/assets/images/Projects/1-ExReg/hero.png)
 
 Satus incustoditam acti, sub metus talia iaculatoremque moresque: qualia putator
 altius spretis. Matris heu hospes germanamque **iussa potentia**, me pennis

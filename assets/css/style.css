@@ -1,82 +1,141 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/typography';
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @custom-variant dark (&:is(.dark *));
 
 /* -------------------------------------------------- */
-/*  THEME OVERRIDES: FONTS + BRAND COLORS             */
+/*  THEME OVERRIDES: TOKENS                           */
 /* -------------------------------------------------- */
-
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Source Serif 4", Georgia, serif;
 
-  /* Brand colours (you can still use these for buttons etc.) */
-  --color-brand: #B87F2A;
-  --color-brand-hover: #E0A955;
+  /* Brand colours - PRIMARY = teal, ACCENT = gold */
+  --color-brand: #007a78;               /* teal */
+  --color-brand-hover: #005c5a;         /* deeper teal */
+
+  --color-gold: #f2c75c;                /* light gold (links / decor) */
+  --color-gold-deep: #c99220;           /* deeper gold (hover / decor) */
 
   /* Site backgrounds */
-  --color-bg-light: #F4F1EB;
-  --color-bg-dark:  #1A1816;
+  --color-bg-light: #f7f4ef;            /* light mode background */
+  --color-bg-dark: #004241;             /* rich dark teal */
 
   /* Text */
-  --color-text-light: #1A1816;  /* warm charcoal */
-  --color-text-dark:  #F7F4EF;  /* warm off-white */
+  --color-text-light: #1a1816;          /* warm charcoal */
+  --color-text-dark: #f7f4ef;           /* light text on dark */
 
-  /* Links – LIGHT MODE */
-  --color-link-light:       #9E5F2C;
-  --color-link-hover-light: #B37742;
+  /* Links - LIGHT MODE (teal) */
+  --color-link-light: #007a78;
+  --color-link-hover-light: #005c5a;
 
-  /* Links – DARK MODE */
-  --color-link-dark:        #E0A955;
-  --color-link-hover-dark:  #B87F2A;
+  /* Links - DARK MODE (gold) */
+  --color-link-dark: #e7c26a;
+  --color-link-hover-dark: #c99220;
 
   /* Supporting neutrals */
-  --color-soft-warm-gray: #E8E3DC;
-  --color-deep-warm-gray: #2A2724;
+  --color-soft-warm-gray: #e8e3dc;
+  --color-deep-warm-gray: #2a2724;
 }
 
 /* -------------------------------------------------- */
-/*  CONTAINER OVERRIDES (unchanged)                   */
+/*  BASE TYPOGRAPHY + GLOBALS                         */
 /* -------------------------------------------------- */
-
-@utility container {
-  padding-inline: 1rem;
-
-  @media (width >= theme(--breakpoint-sm)) {
-    padding-inline: 2rem;
-  }
-
-  @media (width >= theme(--breakpoint-lg)) {
-    padding-inline: 4rem;
-  }
-
-  @media (width >= theme(--breakpoint-xl)) {
-    padding-inline: 5rem;
-  }
-
-  @media (width >= theme(--breakpoint-2xl)) {
-    padding-inline: 6rem;
-  }
-}
-
-/* -------------------------------------------------- */
-/*  BASE LAYER FIXES + BRAND LINK COLORS              */
-/* -------------------------------------------------- */
-
 @layer base {
-  /* Default body font: Inter */
   html {
     font-family: var(--font-sans);
   }
 
-  /* Headings: Source Serif 4 */
-  h1, h2, h3, h4, h5, h6 {
+  /* Global Heading Defaults (outside .prose) */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-serif);
-    font-weight: 600;
+    font-weight: 100;
     font-optical-sizing: auto;
+    line-height: 1.2;
   }
 
-  /* Tailwind v4 border compatibility */
+  h1 {
+    font-size: clamp(2.25rem, 3vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  /* -------------------------------------------------- */
+  /*  TYPOGRAPHY PLUGIN OVERRIDES                      */
+  /*  (Markdown content inside .prose)                  */
+  /* -------------------------------------------------- */
+
+  /* Headings in markdown: lighter editorial weight */
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    font-family: var(--font-serif);
+    font-weight: 300 !important; /* key change: softer, not 700 */
+    font-optical-sizing: auto;
+    line-height: 1.1;
+  }
+
+  /* Links inside markdown body */
+  .prose a {
+    color: var(--color-link-light);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .prose a:hover,
+  .prose a:focus {
+    color: var(--color-link-hover-light);
+  }
+
+  .dark .prose a {
+    color: var(--color-link-dark);
+  }
+
+  .dark .prose a:hover,
+  .dark .prose a:focus {
+    color: var(--color-link-hover-dark);
+  }
+
+  /* Markdown bold / strong – softer emphasis */
+  .prose strong,
+  .prose b {
+    font-weight: 400 !important; /* key change: gentle bold */
+    color: inherit;
+  }
+
+  .dark .prose strong,
+  .dark .prose b {
+    font-weight: 400 !important;
+    color: inherit;
+  }
+
+  /* Section vertical rhythm helper */
+  .section-space {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-space {
+      padding-top: 5.5rem;
+      padding-bottom: 5.5rem;
+    }
+  }
+
+  /* Fix Tailwind border defaults */
   *,
   ::after,
   ::before,
@@ -85,35 +144,155 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 
-  /* Global link colors using our new tokens */
+  /* -------------------------------------------------- */
+  /*  TEXT SELECTION COLORS                             */
+  /* -------------------------------------------------- */
+
+  /* Light mode selection */
+  ::selection {
+    background-color: rgba(0, 122, 120, 0.25);   /* soft teal wash */
+    color: var(--color-text-light);              /* charcoal */
+  }
+
+  a::selection,
+  a:visited::selection,
+  a:hover::selection,
+  a:focus::selection {
+    background-color: rgba(0, 122, 120, 0.35);
+    color: var(--color-text-light) !important;
+  }
+
+  /* Dark mode selection */
+  .dark ::selection {
+    background-color: rgba(242, 199, 92, 0.35);  /* soft gold wash */
+    color: var(--color-text-dark);               /* light text */
+  }
+
+  .dark a::selection,
+  .dark a:visited::selection,
+  .dark a:hover::selection,
+  .dark a:focus::selection {
+    background-color: rgba(242, 199, 92, 0.5);
+    color: var(--color-text-dark) !important;
+  }
+
+  /* -------------------------------------------------- */
+  /*  GLOBAL LINKS                                      */
+  /* -------------------------------------------------- */
+
   a {
     color: var(--color-link-light);
     text-decoration: none;
-    text-decoration-thickness: 1px;
     text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+    transition:
+      color 0.15s ease,
+      text-decoration-color 0.15s ease;
   }
 
   a:hover,
-  a:focus {
+  a:focus-visible {
     color: var(--color-link-hover-light);
+    text-decoration: underline;
+    text-decoration-color: var(--color-link-hover-light);
   }
 
-  /* Dark mode link overrides */
   .dark a {
     color: var(--color-link-dark);
+    text-decoration-color: var(--color-link-dark);
   }
 
   .dark a:hover,
-  .dark a:focus {
+  .dark a:focus-visible {
     color: var(--color-link-hover-dark);
+    text-decoration: underline;
+    text-decoration-color: var(--color-link-hover-dark);
   }
 }
 
 /* -------------------------------------------------- */
-/*  TOUCH TARGET IMPROVEMENTS (WCAG 2.1 Level AA)     */
+/*  COMPONENTS: BLOG TITLES, SIGNATURE, ETC           */
 /* -------------------------------------------------- */
+@layer components {
+  .post-title {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-optical-sizing: auto;
+    line-height: 1.2;
+  }
 
-/* Navigation and interactive elements */
+  /* Explicit link styling for post titles */
+  .post-title a {
+    color: var(--color-text-light);              /* charcoal in light mode */
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .post-title a:hover,
+  .post-title a:focus-visible {
+    color: var(--color-link-hover-light);        /* deeper teal on hover */
+  }
+
+  .dark .post-title a {
+    color: var(--color-text-dark);               /* light headings in dark mode */
+  }
+
+  .dark .post-title a:hover,
+  .dark .post-title a:focus-visible {
+    color: var(--color-link-hover-dark);         /* deeper gold on hover */
+  }
+
+  /* Signature styling */
+  .signature {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 3.5rem;
+    font-weight: 300;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    border-right: 0.12em solid transparent;
+    animation: handwriting 3s cubic-bezier(0.48, 0.01, 0.22, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  .prose h1.signature {
+    font-family: "Nothing You Could Do", cursive !important;
+    margin-bottom: 0.25rem;
+    margin-top: 0;
+  }
+
+  .prose p.hero-subtitle {
+    margin-top: 0.25rem;
+  }
+
+  .nothing-you-could-do {
+    font-family: "Nothing You Could Do", cursive;
+    font-weight: 400;
+  }
+}
+
+/* -------------------------------------------------- */
+/*  UTILITY OVERRIDES (Container, Touch Targets)      */
+/* -------------------------------------------------- */
+@utility container {
+  padding-inline: 1rem;
+
+  @media (width >= theme(--breakpoint-sm)) {
+    padding-inline: 2rem;
+  }
+  @media (width >= theme(--breakpoint-lg)) {
+    padding-inline: 4rem;
+  }
+  @media (width >= theme(--breakpoint-xl)) {
+    padding-inline: 5rem;
+  }
+  @media (width >= theme(--breakpoint-2xl)) {
+    padding-inline: 6rem;
+  }
+}
+
+/* Touch targets */
 nav a,
 nav button,
 .navbar a,
@@ -121,7 +300,9 @@ nav button,
 .nav-link,
 button,
 [role="button"],
-.btn {
+.btn,
+a.px-4,
+a.flex.items-center {
   min-height: 44px;
   min-width: 44px;
   display: inline-flex;
@@ -131,26 +312,36 @@ button,
   padding-block: 0.5rem;
 }
 
-/* Specific navbar link patterns */
-a.px-4,
-a.flex.items-center {
-  min-height: 44px;
-  min-width: 44px;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-/* Ensure spacing between adjacent touch targets */
 nav a + a,
 nav button + button,
 .navbar a + a,
 .nav-link + .nav-link {
   margin-left: 0.5rem;
 }
-/* -------------------------------------------------- */
-/*  ANIMATION                                         */
-/* -------------------------------------------------- */
 
+/* -------------------------------------------------- */
+/*  BACKGROUND + TEXT (light/dark swap)               */
+/* -------------------------------------------------- */
+:root {
+  --site-bg: var(--color-bg-light);
+}
+
+.dark {
+  --site-bg: var(--color-bg-dark);
+}
+
+body {
+  background-color: var(--site-bg) !important;
+  color: var(--color-text-light);
+}
+
+.dark body {
+  color: var(--color-text-dark);
+}
+
+/* -------------------------------------------------- */
+/*  ANIMATIONS                                        */
+/* -------------------------------------------------- */
 @keyframes gentle-bounce {
   0% {
     transform: translateY(0);
@@ -167,18 +358,35 @@ a.gentle-clicked {
   animation: gentle-bounce 0.3s ease-out;
 }
 
-/* Site background variables (light / dark) */
-/* You *could* swap these to use theme vars later if you want */
-
-:root {
-  --site-bg: #F7F4EF; /* light background */
+@keyframes handwriting {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
 }
 
-.dark {
-  --site-bg: #2A2724; /* dark background */
+.animation-fade {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
 }
 
-/* Force the page background to use the variable (override Tailwind utilities if necessary) */
-body {
-  background-color: var(--site-bg) !important;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animation-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s ease forwards;
 }
